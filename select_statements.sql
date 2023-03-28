@@ -1,6 +1,8 @@
 -- User Stories
 
--- Selection
+-- UPDATE
+-- *** As a user, I want to be able to update the name, the email address and the phone number of a customer
+-- SELECTION
 -- *** As a user I want to be able to select all the attributes of a table
 SELECT * FROM DELIVERY;
 
@@ -16,7 +18,7 @@ WHERE  TRANSPORTSTATUS = 'in-delivery';
 -- ***
 
 
--- Projection
+-- PROJECTION
 -- ** As a user, I want to be able to only see the columns CustomerID, Destination, Scheduled Date, and Delivery time (Ordered by delivery scheduled date in an ascending order)
 
 SELECT CUSTOMERID, DESTINATION,
