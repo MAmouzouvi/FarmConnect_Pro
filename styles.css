@@ -1,0 +1,9 @@
+.page-menu {
+    padding: 5px;
+    width: 500px;
+    border: 2px solid lightblue;
+}
+
+.page-menu:hover {
+    cursor: pointer;
+}
