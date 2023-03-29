@@ -179,6 +179,7 @@ CREATE TABLE Delivery
     destination          VARCHAR(50) NOT NULL,
 
     PRIMARY KEY (deliveryID),
+    FOREIGN KEY (customerID) REFERENCES Customer,
     FOREIGN KEY (driverLicenseNumber) REFERENCES Drivers,
     FOREIGN KEY (transportVehicleName) REFERENCES TransportVehicle,
     FOREIGN KEY (warehouseName, scheduledDate, destination) REFERENCES DeliveryReceived
