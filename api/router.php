@@ -22,9 +22,7 @@ function handlePOSTRequest() {
 // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
 function handleGETRequest() {
     if (connectToDB()) {
-        if (array_key_exists('countTuples', $_GET)) {
-            handleCountRequest();
-        } else if (array_key_exists('select', $_GET) && array_key_exists('tableName', $_GET)) {
+        if (array_key_exists('selectRequest', $_GET) && array_key_exists('tableName', $_GET)) {
             handleSelectionRequest($_GET['tableName']);
         }
 

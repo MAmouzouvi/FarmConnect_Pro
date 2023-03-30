@@ -3,25 +3,27 @@ require_once('db_connect.php');
 
 function handleSelectionRequest($table, $fields = null) {
     global $db_conn;
+    $output = "<h2> Table: $table </h2>";
 
     if (is_null($fields)) {
         $result = executePlainSQL("SELECT * FROM $table");
     }
     
     $num_fields = oci_num_fields($result);
-    echo "<table>";
-    echo "<tr>";
+    $output .= "<table>";
+    $output .=  "<tr>";
     for ($i = 1; $i <= $num_fields; $i++) {
-        echo "<th> " . oci_field_name($result, $i) . " </th>";
+        $output .=  "<th> " . oci_field_name($result, $i) . " </th>";
     }
-    echo "</tr>";
+    $output .=  "</tr>";
     while (($row = oci_fetch_row($result)) != false) {
-        echo "<tr>";
+        $output .=  "<tr>";
         for ($i = 0; $i < $num_fields; $i++) { 
-            echo "<td> " . $row[$i] . " </td>";
+            $output .=  "<td> " . $row[$i] . " </td>";
         }
-        echo "</tr>";
+        $output .=  "</tr>";
     }
-    echo "</table>";
+    $output .=  "</table>";
+    echo $output;
 }
 ?>
