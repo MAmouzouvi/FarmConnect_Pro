@@ -1,7 +1,8 @@
 <?php
-require_once 'db_connect.php';
-require_once 'db_display.php';
-require_once 'db_updates.php';
+require_once('db_connect.php');
+require_once('db_display.php');
+require_once('db_updates.php');
+require_once('db_selection.php');
 // handles routing for API requests
 function handlePOSTRequest() {
     if (connectToDB()) {
@@ -23,6 +24,8 @@ function handleGETRequest() {
     if (connectToDB()) {
         if (array_key_exists('countTuples', $_GET)) {
             handleCountRequest();
+        } else if (array_key_exists('select', $_GET) && array_key_exists('tableName', $_GET)) {
+            handleSelectionRequest($_GET['tableName']);
         }
 
         disconnectFromDB();
@@ -31,6 +34,7 @@ function handleGETRequest() {
 
 if (isset($_POST['reset']) || isset($_POST['updateSubmit']) || isset($_POST['insertSubmit'])) {
     handlePOSTRequest();
-} else if (isset($_GET['countTupleRequest'])) {
+} else if (isset($_GET['countTupleRequest']) || isset($_GET['selectRequest'])) {
     handleGETRequest();
 }
+?>

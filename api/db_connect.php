@@ -1,5 +1,5 @@
 <?php
-//this tells the system that it's no longer just parsing html; it's now parsing PHP
+// borrowed from the tutorial 7 starter code
 
 $success = True; //keep track of errors so it redirects the page only if there are no errors
 $db_conn = NULL; // edit the login credentials in connectToDB()

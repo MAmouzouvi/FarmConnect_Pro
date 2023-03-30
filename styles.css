@@ -7,3 +7,12 @@
 .page-menu:hover {
     cursor: pointer;
 }
+
+table, tr, td, th {
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 5px;
+}
