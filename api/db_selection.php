@@ -7,6 +7,10 @@ function handleSelectionRequest($table, $fields = null) {
 
     if (is_null($fields)) {
         $result = executePlainSQL("SELECT * FROM $table");
+    }else {
+//        WILL USE THIS FOR PROJECTION
+        $selected_fields = implode(", ", $fields);
+        $result = executePlainSQL("SELECT $selected_fields FROM $table");
     }
     
     $num_fields = oci_num_fields($result);
