@@ -24,17 +24,6 @@
             <input type="submit" name="Go">
         </form>
 
-<!---->
-<!--        require_once('api/router.php');-->
-<!--        require_once('api/db_connect.php');-->
-<!--//        if (connectToDB()) {-->
-<!--//            handleSelectionRequest("Delivery"); // show Delivery table by default-->
-<!--//            disconnectFromDB();-->
-<!--//        }-->
-
-
-
-
     </body>
 </html>
 
