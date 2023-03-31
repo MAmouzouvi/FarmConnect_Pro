@@ -19,3 +19,24 @@ table, tr, td, th {
 td, th {
     padding: 5px;
 }
+
+.form-box {
+    width: 500px;
+    clear: both;
+}
+
+.form-box input {
+    width: 100%;
+    clear: both;
+    margin: 3px;
+}
+
+.error-msg {
+    margin: 10px;
+    color: rgb(188, 13, 13);
+}
+
+.success-msg {
+    margin: 10px;
+    color: green;
+}

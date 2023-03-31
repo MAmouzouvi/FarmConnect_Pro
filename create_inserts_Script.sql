@@ -35,7 +35,7 @@ CREATE TABLE Customer
     phoneNumber  INTEGER,
     PRIMARY KEY (customerID),
     UNIQUE (emailAddress),
-    FOREIGN KEY (phoneNumber) REFERENCES CustomerPhoneAddress
+    FOREIGN KEY (phoneNumber) REFERENCES CustomerPhoneAddress ON DELETE CASCADE
 );
 
 GRANT
