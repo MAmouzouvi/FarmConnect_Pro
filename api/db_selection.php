@@ -1,10 +1,8 @@
 <?php
 require_once('db_connect.php');
 
-function handleSelectionRequest($table, $condition = null, $fields = null) {
+function doSelection($table, $condition = null, $fields = null) {
     global $db_conn;
-    $output = "<h2> Table: $table </h2>";
-
     if (is_null($condition)) {
         if (is_null($fields)) {
 
@@ -28,7 +26,13 @@ function handleSelectionRequest($table, $condition = null, $fields = null) {
             $result = executePlainSQL("SELECT $selected_fields FROM $table WHERE $condition");
         }
     }
-    
+
+    return $result;
+}
+
+function handleSelectionRequest($table, $condition = null, $fields = null) {
+    $output = "<h2> Table: $table </h2>";
+    $result = doSelection($table, $condition, $fields);
     $num_fields = oci_num_fields($result);
     $output .= "<table>";
     $output .=  "<tr>";
