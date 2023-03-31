@@ -1,11 +1,14 @@
 .page-menu {
-    padding: 5px;
-    width: 500px;
-    border: 2px solid lightblue;
+    padding: 10px;
+    width: 100px;
+    background: lightblue;
+    margin: 5px;
+    border-radius: 3px;
 }
 
 .page-menu:hover {
     cursor: pointer;
+    background: rgb(209, 232, 240);
 }
 
 table, tr, td, th {

@@ -1,17 +1,15 @@
 <?php
 require_once('db_connect.php');
-function handleSelectionByDateRequest()
+function handleSelectionByDateRequest($table, $field, $date_in_string)
 {
     global $db_conn;
 
-    $date = date("YYYY-MM-DD");
+    $date = date($date_in_string);
 
-
-
-    $result = executePlainSQL("SELECT * FROM DELIVERY WHERE DELIVERY.SCHEDULEDDATE = $date");
+    $result = executePlainSQL("SELECT * FROM $table WHERE $field = $date");
 
     if ((oci_fetch_row($result))) {
-        handleSelectionRequest("Delivery","Delivery.scheduledDate = $date");
+        handleSelectionRequest($table,$field==$date);
 
     }
     else {

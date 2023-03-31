@@ -46,3 +46,4 @@ function handleSelectionRequest($table, $condition = null,$fields = null) {
     $output .=  "</table>";
     echo $output;
 }
+?>

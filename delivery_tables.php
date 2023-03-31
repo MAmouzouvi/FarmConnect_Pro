@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
     <head>
         <title>Delivery Information</title>
         <link rel="stylesheet" href="styles.css">
@@ -26,5 +26,8 @@
             </select>
             <input type="submit" value="Go">
         </form>
+
     </body>
 </html>
+
+

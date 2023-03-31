@@ -3,7 +3,7 @@ function handleDeleteRequest($ids) {
     global $db_conn;
 
     $id_list = implode(",", $ids);
-    $query = "DELETE FROM ORA_LPHAM01.delivery WHERE deliveryID IN ($id_list)";
+    $query = "DELETE FROM Delivery WHERE deliveryID IN ($id_list)";
 
     $result = executePlainSQL($query);
 
@@ -13,4 +13,4 @@ function handleDeleteRequest($ids) {
         echo "Error deleting rows from the table.";
     }
 }
-?>
+
