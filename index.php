@@ -19,6 +19,6 @@
         <div class="page-menu" onclick="window.location.href = 'Payments_table.php'">
             Payments
         </div>
-        <script src="index.js"></script>
+<!--        <script src="index.js"></script>-->
 	</body>
 </html>

@@ -18,7 +18,7 @@ function handleGETRequest()
             handleSelectionRequest($_GET['tableName']);
         }
 
-        if(array_key_exists('selectRequest', $_GET) && array_key_exists('date', $_GET)){
+        if (array_key_exists('selectRequest', $_GET) && array_key_exists('date', $_GET)){
             handleSelectionByDateRequest("Pays_Bill", 'fulfillmentDate',$_GET['date']);
         }
 
