@@ -1,5 +1,5 @@
 <?php
-// borrowed from the tutorial 7 starter code
+// borrowed from the tutorial 7 starter code at: https://www.students.cs.ubc.ca/~cs-304/resources/php-oracleresources/php-setup.html
 
 $success = True; //keep track of errors so it redirects the page only if there are no errors
 $db_conn = NULL; // edit the login credentials in connectToDB()

@@ -1,7 +1,7 @@
 <?php
 require_once('db_connect.php');
 
-function handleSelectionRequest($table, $condition = null,$fields = null) {
+function handleSelectionRequest($table, $condition = null, $fields = null) {
     global $db_conn;
     $output = "<h2> Table: $table </h2>";
 
