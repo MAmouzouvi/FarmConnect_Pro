@@ -29,10 +29,16 @@
             <input type="submit" value="Go">
         </form>
         <h3>Find drivers who made all deliveries on a certain day:</h3>
-        <form method="GET" action="delivery_tables.php" id="division-request">
+        <form method="GET" action="delivery_tables.php">
             <input type="hidden" name="divisionRequest">
-            Date:<input type="date" name="date" style="margin: 10px;" id="division-request-date"><br />
+            Date:<input type="date" name="date" style="margin: 10px;"><br />
             <input type="submit" value="Find Deliveries">
+        </form>
+        <br />
+        <h3>Find counts of each item by name:</h3>
+        <form method="GET" action="delivery_tables.php">
+            <input type="hidden" name="groupByRequest">
+            <input type="submit" value="Go">
         </form>
         <br />
         <br />

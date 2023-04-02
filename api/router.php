@@ -3,6 +3,7 @@ require_once('db_connect.php');
 require_once('db_selection.php');
 require_once('db_insert.php');
 require_once('db_division.php');
+require_once('db_groupby.php');
 
 // built off of tutorial 7 code at https://www.students.cs.ubc.ca/~cs-304/resources/php-oracleresources/php-setup.html
 // handles routing for API requests
@@ -25,6 +26,8 @@ function handleGETRequest() {
             handleSelectionByDateRequest("Pays_Bill", 'fulfillmentDate', $_GET['date']);
         } else if (array_key_exists('divisionRequest', $_GET) && array_key_exists('date', $_GET)) {
             handleDivisionRequest();
+        } else if (array_key_exists('groupByRequest', $_GET)) {
+            handleGroupByRequest();
         }
         disconnectFromDB();
     }
@@ -32,7 +35,8 @@ function handleGETRequest() {
 
 if (isset($_POST['insertBusinessRequest'])) {
     handlePOSTRequest();
-} else if (isset($_GET['selectRequest']) || isset($_GET['selectByDateRequest']) || isset($_GET['divisionRequest'])) {
+} else if (isset($_GET['selectRequest']) || isset($_GET['selectByDateRequest']) 
+            || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])) {
     handleGETRequest();
 }
 ?>
