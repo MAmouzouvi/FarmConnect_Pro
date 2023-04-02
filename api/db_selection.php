@@ -30,11 +30,9 @@ function doSelection($table, $condition = null, $fields = null) {
     return $result;
 }
 
-function handleSelectionRequest($table, $condition = null, $fields = null) {
-    $output = "<h2> Table: $table </h2>";
-    $result = doSelection($table, $condition, $fields);
+function outputResultTable($result) {
     $num_fields = oci_num_fields($result);
-    $output .= "<table>";
+    $output = "<table>";
     $output .=  "<tr>";
     for ($i = 1; $i <= $num_fields; $i++) {
         $output .=  "<th> " . oci_field_name($result, $i) . " </th>";
@@ -49,5 +47,11 @@ function handleSelectionRequest($table, $condition = null, $fields = null) {
     }
     $output .=  "</table>";
     echo $output;
+}
+
+function handleSelectionRequest($table, $condition = null, $fields = null) {
+    echo "<h2> Table: $table </h2>";
+    $result = doSelection($table, $condition, $fields);
+    outputResultTable($result);
 }
 ?>

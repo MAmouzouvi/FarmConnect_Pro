@@ -23,10 +23,6 @@ CREATE TABLE CustomerPhoneAddress
     PRIMARY KEY (phoneNumber)
 );
 
-GRANT
-    ALL
-    ON CustomerPhoneAddress TO ORA_MAKAFUI2;
-
 CREATE TABLE Customer
 (
     customerID   INTEGER,
@@ -38,10 +34,6 @@ CREATE TABLE Customer
     FOREIGN KEY (phoneNumber) REFERENCES CustomerPhoneAddress ON DELETE CASCADE
 );
 
-GRANT
-    ALL
-    ON Customer TO ORA_MAKAFUI2;
-
 
 CREATE TABLE Contract_Dates
 (
@@ -49,10 +41,6 @@ CREATE TABLE Contract_Dates
     startDate  DATE,
     PRIMARY KEY (signedDate)
 );
-
-GRANT
-    ALL
-    ON Contract_Dates TO ORA_MAKAFUI2;
 
 CREATE TABLE Signs_Contract
 (
@@ -65,10 +53,6 @@ CREATE TABLE Signs_Contract
     FOREIGN KEY (signedDate) REFERENCES Contract_Dates
 );
 
-GRANT
-    ALL
-    ON Signs_Contract TO ORA_MAKAFUI2;
-
 CREATE TABLE Farm
 (
     farmID  INTEGER,
@@ -79,10 +63,6 @@ CREATE TABLE Farm
     UNIQUE (address)
 );
 
-GRANT
-    ALL
-    ON Farm TO ORA_MAKAFUI2;
-
 CREATE TABLE Warehouse
 (
     name     VARCHAR(50),
@@ -91,10 +71,6 @@ CREATE TABLE Warehouse
     PRIMARY KEY (name),
     UNIQUE (address)
 );
-
-GRANT
-    ALL
-    ON Warehouse TO ORA_MAKAFUI2;
 
 CREATE TABLE Farm_Warehouse_Supplies
 (
@@ -105,10 +81,6 @@ CREATE TABLE Farm_Warehouse_Supplies
     FOREIGN KEY (warehouseName) REFERENCES Warehouse ON DELETE CASCADE,
     FOREIGN KEY (farmID) REFERENCES Farm ON DELETE CASCADE
 );
-
-GRANT
-    ALL
-    ON Farm_Warehouse_Supplies TO ORA_MAKAFUI2;
 
 CREATE TABLE Pays_Bill
 (
@@ -121,10 +93,6 @@ CREATE TABLE Pays_Bill
     FOREIGN KEY (customerID) REFERENCES Customer ON DELETE CASCADE
 );
 
-GRANT
-    ALL
-    ON Pays_Bill TO ORA_MAKAFUI2;
-
 CREATE TABLE Drivers
 (
     licenseNumber INTEGER,
@@ -133,10 +101,6 @@ CREATE TABLE Drivers
     PRIMARY KEY (licenseNumber)
 );
 
-GRANT
-    ALL
-    ON Drivers TO ORA_MAKAFUI2;
-
 CREATE TABLE TransportVehicle
 (
     name   CHAR(50),
@@ -144,10 +108,6 @@ CREATE TABLE TransportVehicle
     status VARCHAR(32),
     PRIMARY KEY (name)
 );
-
-GRANT
-    ALL
-    ON TransportVehicle TO ORA_MAKAFUI2;
 
 CREATE TABLE DeliveryReceived
 (
@@ -158,10 +118,6 @@ CREATE TABLE DeliveryReceived
     PRIMARY KEY (warehouseName, scheduledDate, destination),
     FOREIGN KEY (warehouseName) REFERENCES Warehouse
 );
-
-GRANT
-    ALL
-    ON DeliveryReceived TO ORA_MAKAFUI2;
 
 CREATE TABLE Delivery
 (
@@ -185,20 +141,12 @@ CREATE TABLE Delivery
     FOREIGN KEY (warehouseName, scheduledDate, destination) REFERENCES DeliveryReceived
 );
 
-GRANT
-    ALL
-    ON Delivery TO ORA_MAKAFUI2;
-
 CREATE TABLE ItemCosts
 (
     name CHAR(32),
     cost REAL,
     PRIMARY KEY (name)
 );
-
-GRANT
-    ALL
-    ON ItemCosts TO ORA_MAKAFUI2;
 
 CREATE TABLE Items
 (
@@ -211,11 +159,6 @@ CREATE TABLE Items
     FOREIGN KEY (name) REFERENCES ItemCosts
 );
 
-GRANT
-    ALL
-    ON Items TO ORA_MAKAFUI2;
-COMMIT;
-
 CREATE TABLE Business
 (
     customerID  INTEGER,
@@ -225,10 +168,6 @@ CREATE TABLE Business
     FOREIGN KEY (customerID) REFERENCES Customer ON DELETE CASCADE
 );
 
-GRANT
-    ALL
-    ON Business TO ORA_MAKAFUI2;
-
 CREATE TABLE Individual
 (
     customerID   INTEGER,
@@ -236,15 +175,6 @@ CREATE TABLE Individual
     PRIMARY KEY (customerID),
     FOREIGN KEY (customerID) REFERENCES Customer ON DELETE CASCADE
 );
-
-GRANT
-    ALL
-    ON Individual TO ORA_MAKAFUI2;
-
-COMMIT;
-
-
-
 
 insert into CustomerPhoneAddress (PHONENUMBER, ADDRESS)
 values (7783321234, '2345 West Mall');
