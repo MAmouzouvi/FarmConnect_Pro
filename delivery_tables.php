@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html>
     <head>
         <title>Delivery Information</title>
         <link rel="stylesheet" href="styles.css">
@@ -10,23 +10,34 @@
             require_once('api/db_selection.php');
             require_once('api/db_connect.php');
             if (connectToDB()) {
-                handleSelectionRequest("Delivery"); // show Delivery table by default
+                handleSelectionRequest("Delivery"); 
+                handleSelectionRequest("Drivers");
                 disconnectFromDB();
             }
-            require_once('api/router.php');
         ?>
+        <br />
         <br />
         <h3>Choose a related table to display:</h3>
         <form method="GET" action="delivery_tables.php"> 
             <input type="hidden" id="selectRequest" name="selectRequest">
             <select name="tableName">
-                <option value="items"> Items </option>
                 <option value="transportvehicle"> Transport Vehicles </option>
-                <option value="drivers"> Drivers </option>
+                <option value="items"> Items </option>
+                <option value="itemcosts"> Item Costs </option>
+                <option value="deliveryreceived"> Delivery Received </option>
             </select>
             <input type="submit" value="Go">
         </form>
+        <h3>Find drivers who made all deliveries on a certain day:</h3>
+        <form method="GET" action="delivery_tables.php" id="division-request">
+            <input type="hidden" name="divisionRequest">
+            Date:<input type="date" name="date" style="margin: 10px;" id="division-request-date"><br />
+            <input type="submit" value="Find Deliveries">
+        </form>
+        <br />
+        <br />
+        <?php
+            require_once('api/router.php');
+        ?>
     </body>
 </html>
-
-

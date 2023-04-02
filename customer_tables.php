@@ -8,12 +8,14 @@
 
 <body>
     <h2> Customer Information </h2>
+    <div class="page-menu" onclick="window.location.href = 'index.php'"> Back </div>
     <?php
             require_once('api/router.php');
             require_once('api/db_selection.php');
             require_once('api/db_connect.php');
             if (connectToDB()) {
                 handleSelectionRequest("Customer");
+                handleSelectionRequest("CustomerPhoneAddress");
                 handleSelectionRequest("Individual"); 
                 handleSelectionRequest("Business");
                 disconnectFromDB();
