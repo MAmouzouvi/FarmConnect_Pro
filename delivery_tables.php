@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <div class="page-menu" onclick="window.location.href = 'index.php'"> Back </div>
         <h2> Delivery Information </h2>
         <?php
             require_once('api/db_selection.php');
