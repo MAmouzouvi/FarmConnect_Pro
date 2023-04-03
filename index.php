@@ -10,13 +10,13 @@
         <div class="page-menu" onclick="window.location.href = 'delivery_tables.php'">
             Delivery
         </div>
-        <div class="page-menu"> <!-- currently doesn't go anywhere yet -->
+        <div class="page-menu" onclick="window.location.href = 'warehouse_tables.php'">
             Warehouse
         </div>
         <div class="page-menu" onclick="window.location.href = 'customer_tables.php'"> 
             Customer
         </div>
-        <div class="page-menu" onclick="window.location.href = 'Payments_table.php'">
+        <div class="page-menu" onclick="window.location.href = 'payments_tables.php">
             Payments
         </div>
 	</body>

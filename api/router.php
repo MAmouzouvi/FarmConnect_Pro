@@ -12,6 +12,7 @@ function handlePOSTRequest() {
         if (array_key_exists('insertBusinessRequest', $_POST)) {
             handleInsertRequest();
         }
+
         disconnectFromDB();
     }
 }
@@ -20,14 +21,17 @@ function handlePOSTRequest() {
 // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
 function handleGETRequest() {
     if (connectToDB()) {
+
         if (array_key_exists('selectRequest', $_GET) && array_key_exists('tableName', $_GET)) {
             handleSelectionRequest($_GET['tableName']);
-        } else if (array_key_exists('selectByDateRequest', $_GET) && array_key_exists('date', $_GET)){
-            handleSelectionByDateRequest("Pays_Bill", 'fulfillmentDate', $_GET['date']);
         } else if (array_key_exists('divisionRequest', $_GET) && array_key_exists('date', $_GET) && array_key_exists('cid', $_GET)) {
             handleDivisionRequest();
         } else if (array_key_exists('groupByRequest', $_GET)) {
             handleGroupByRequest();
+        }else if (array_key_exists('projectionRequest', $_GET) && array_key_exists('fields', $_GET) ) {
+            handleProjectionRequest("Delivery",null,$_GET['fields']); // in db_selection.php
+        }else if (array_key_exists('NestedGroupByRequest', $_GET)) {
+            handleNestedGroupByRequest();
         }
         disconnectFromDB();
     }
@@ -36,7 +40,8 @@ function handleGETRequest() {
 if (isset($_POST['insertBusinessRequest'])) {
     handlePOSTRequest();
 } else if (isset($_GET['selectRequest']) || isset($_GET['selectByDateRequest']) 
-            || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])) {
+            || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
+    || isset($_GET['projectionRequest'])) {
     handleGETRequest();
 }
 ?>
