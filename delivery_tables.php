@@ -61,6 +61,13 @@ if (connectToDB()) {
     <input type="hidden" name="NestedGroupByRequest">
     <input type="submit" value="Go">
 </form>
+
+<h3>Find deliveries based on status (filtering/selection) </h3>
+<form method="GET" action="delivery_tables.php">
+    <input type="hidden" name="filterRequest">
+    transport status: <input type="text" name="status" style="margin: 100px;">
+    <input type="submit" value="Go">
+</form>
 <br/>
 <br/>
 <?php
