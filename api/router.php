@@ -24,7 +24,7 @@ function handleGETRequest() {
             handleSelectionRequest($_GET['tableName']);
         } else if (array_key_exists('selectByDateRequest', $_GET) && array_key_exists('date', $_GET)){
             handleSelectionByDateRequest("Pays_Bill", 'fulfillmentDate', $_GET['date']);
-        } else if (array_key_exists('divisionRequest', $_GET) && array_key_exists('date', $_GET)) {
+        } else if (array_key_exists('divisionRequest', $_GET) && array_key_exists('date', $_GET) && array_key_exists('cid', $_GET)) {
             handleDivisionRequest();
         } else if (array_key_exists('groupByRequest', $_GET)) {
             handleGroupByRequest();

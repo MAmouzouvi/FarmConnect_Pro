@@ -369,7 +369,7 @@ values (458, '1345 West Mall', TO_DATE('14:16', 'HH24:MI'), TO_DATE('2023-02-28'
         'in warehouse', 1234569, 'truck_3', TO_DATE('2023-02-22', 'YY-MM-DD'), 'warehouse_2');
 
 insert into Delivery(deliveryid, destination, deliverytime, scheduleddate, totalweight, totalcost, customerid, transportstatus, driverlicensenumber, transportvehiclename, storedsince, warehousename)
-values (459, '1545 West Mall', TO_TIMESTAMP('2023-02-25 19:00', 'YYYY-MM-DD HH24:MI'), TO_DATE('2023-02-25', 'YY-MM-DD'), 45.5, 1900.56, 4511,
+values (459, '1545 West Mall', TO_TIMESTAMP('2023-02-25 19:00', 'YYYY-MM-DD HH24:MI'), TO_DATE('2023-02-25', 'YY-MM-DD'), 45.5, 1900.56, 4513,
         'delayed', 1234571 , 'truck_4', TO_DATE('2023-02-24', 'YY-MM-DD'), 'warehouse_2');
 
 insert into Delivery(deliveryid, destination, deliverytime, scheduleddate, totalweight, totalcost, customerid, transportstatus, driverlicensenumber, transportvehiclename, storedsince, warehousename)
@@ -380,7 +380,7 @@ INSERT INTO Delivery VALUES (461, to_timestamp('2023-02-05 15:00:00', 'yyyy-mm-d
     'in warehouse', 1234569, 'truck_2', to_date('2023-01-01', 'yyyy-mm-dd'), 'warehouse_3', 
     TO_DATE('2023-02-05', 'yyyy-mm-dd'), '123 ABC Rd');
 
-INSERT INTO Delivery VALUES (462, to_timestamp('2023-02-05 18:13:00', 'yyyy-mm-dd hh24:mi:ss'), 56.2 , 260.12, 4513,
+INSERT INTO Delivery VALUES (462, to_timestamp('2023-02-05 18:13:00', 'yyyy-mm-dd hh24:mi:ss'), 56.2 , 260.12, 4563,
     'delivered', 1234569, 'truck_4', to_date('2023-01-16', 'yyyy-mm-dd'), 'warehouse_1', 
     TO_DATE('2023-02-05', 'yyyy-mm-dd'), '234 5th Ave');
 
@@ -443,3 +443,5 @@ insert into Individual(customerid, rewardpoints)
 values (4563, 1003);
 insert into Individual(customerid, rewardpoints)
 values (4564, 4031);
+
+commit;

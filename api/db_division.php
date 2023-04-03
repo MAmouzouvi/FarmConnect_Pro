@@ -4,10 +4,9 @@ require_once('db_selection.php');
 // in-progress
 function handleDivisionRequest() {
     $error_msg = "<div class=\"error-msg\"> ";
-    if (empty($_GET['date'])) {
+    if (empty($_GET['date']) || empty($_GET['cid'])) {
         echo $error_msg .= "Please specify a date. </div>";
     } else {
-        // echo $_GET['date'];
         global $db_conn;
         $error_msg .= "Could not complete query. </div>";
 
@@ -19,11 +18,15 @@ function handleDivisionRequest() {
         $inputDate->add($interval);
         $inputTimeEnd = $inputDate->format("Y-m-d H:i:s");
         $query = <<< QUERY
-        SELECT dr1.licenseNumber, dr1.name FROM Drivers dr1 WHERE NOT EXISTS (
+        SELECT DISTINCT dr1.licenseNumber, dr1.name FROM Drivers dr1, Delivery d3 
+        WHERE dr1.licenseNumber = d3.driverLicenseNumber 
+        AND d3.customerID = :cid 
+        AND NOT EXISTS (
             (SELECT d1.driverLicenseNumber
             FROM Delivery d1
             WHERE d1.deliveryTime >= to_timestamp(:d1, 'yyyy-mm-dd hh24:mi:ss') 
-            AND d1.deliveryTime < to_timestamp(:d2, 'yyyy-mm-dd hh24:mi:ss'))
+            AND d1.deliveryTime < to_timestamp(:d2, 'yyyy-mm-dd hh24:mi:ss')
+            AND d1.customerID = :cid)
             MINUS 
             (SELECT d2.driverLicenseNumber
             FROM Delivery d2
@@ -31,6 +34,7 @@ function handleDivisionRequest() {
         QUERY;
 
         $stid = oci_parse($db_conn, $query);
+        oci_bind_by_name($stid, ':cid', $_GET['cid']);
         oci_bind_by_name($stid, ':d1', $inputTimeStart);
         oci_bind_by_name($stid, ':d2', $inputTimeEnd);
 

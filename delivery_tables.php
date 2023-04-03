@@ -5,8 +5,8 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div class="page-menu" onclick="window.location.href = 'index.php'"> Back </div>
         <h2> Delivery Information </h2>
+        <div class="page-menu" onclick="window.location.href = 'index.php'"> Back </div>
         <?php
             require_once('api/db_selection.php');
             require_once('api/db_connect.php');
@@ -29,10 +29,11 @@
             </select>
             <input type="submit" value="Go">
         </form>
-        <h3>Find drivers who made all deliveries on a certain day:</h3>
+        <h3>Find drivers who made all deliveries to a certain customer on a certain day:</h3>
         <form method="GET" action="delivery_tables.php">
             <input type="hidden" name="divisionRequest">
             Date:<input type="date" name="date" style="margin: 10px;"><br />
+            Customer ID: <input type="text" name="cid" style="margin: 10px;"><br />
             <input type="submit" value="Find Deliveries">
         </form>
         <br />
