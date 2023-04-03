@@ -4,6 +4,8 @@ require_once('db_selection.php');
 require_once('db_insert.php');
 require_once('db_division.php');
 require_once('db_groupby.php');
+require_once('db_nested_groupby.php');
+require_once('db_projection.php');
 
 // built off of tutorial 7 code at https://www.students.cs.ubc.ca/~cs-304/resources/php-oracleresources/php-setup.html
 // handles routing for API requests
@@ -39,8 +41,7 @@ function handleGETRequest() {
 
 if (isset($_POST['insertBusinessRequest'])) {
     handlePOSTRequest();
-} else if (isset($_GET['selectRequest']) || isset($_GET['selectByDateRequest']) 
-            || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
+} else if (isset($_GET['selectRequest']) || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
     || isset($_GET['projectionRequest'])) {
     handleGETRequest();
 }
