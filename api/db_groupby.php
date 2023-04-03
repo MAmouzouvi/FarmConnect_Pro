@@ -6,7 +6,7 @@ function handleGroupByRequest() {
     global $db_conn;
 
     $query = <<< QUERY
-    SELECT name, COUNT(*)
+    SELECT name, COUNT(*) as count, SUM(weight * quantity) as totalWeight
     FROM Items
     GROUP BY name
     QUERY;

@@ -39,7 +39,7 @@ if (connectToDB()) {
     <input type="submit" value="Find Deliveries">
 </form>
 <br/>
-<h3>Find counts of each item by name:</h3>
+<h3>Find counts and total weights of each item by name:</h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" name="groupByRequest">
     <input type="submit" value="Go">
