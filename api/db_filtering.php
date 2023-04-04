@@ -2,6 +2,7 @@
 function handleFilteringRequest($table, $condition)
 {
     if ($condition != null) {
+        echo "<h2> Table: delivery (status : $condition) </h2>";
         $query = "SELECT * FROM DELIVERY";
         if ($condition == 'in-delivery') {
 

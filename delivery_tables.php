@@ -49,13 +49,35 @@ if (connectToDB()) {
 
 <br/>
 <br/>
-<h3>Enter only the fields you would like to see for the delivery tables
-    (in capitals and seperated by a comma) and submit!</h3>
+<!--<h3>Enter only the fields you would like to see for the delivery tables-->
+<!--    (in capitals and seperated by a comma) and submit!</h3>-->
+<!--<form method="GET" action="delivery_tables.php">-->
+<!--    <input type="hidden" name="projectionRequest">-->
+<!--    Fields: <input type="text" name="fields" style="margin: 10px;">-->
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
+
+<h3> Select only the fields you would like to see (press command or control to select multiple) </h3>
 <form method="GET" action="delivery_tables.php">
-    <input type="hidden" name="projectionRequest">
-    Fields: <input type="text" name="fields" style="margin: 10px;">
-    <input type="submit" value="Submit">
+    <input type="hidden" id="projectionRequest" name="projectionRequest">
+    <select name="fields[]" multiple size="12">
+        <option value="DELIVERYID"> Delivery ID</option>
+        <option value="DELIVERYTIME"> Delivery time </option>
+        <option value="TOTALWEIGHT"> Total weight </option>
+        <option value="TOTALCOST"> Total cost </option>
+        <option value="CUSTOMERID"> Customer ID </option>
+        <option value="TRANSPORTSTATUS"> transport status </option>
+        <option value="DRIVERLICENSENUMBER"> driver license number </option>
+        <option value="TRANSPORTVEHICLENAME"> Transport vehicle name </option>
+        <option value="STOREDSINCE"> stored since </option>
+        <option value="WAREHOUSE"> warehouse </option>
+        <option value="SCHEDULEDDATE"> scheduled date </option>
+        <option value="DESTINATIOM"> destination </option>
+
+    </select>
+    <input type="submit" value="Go">
 </form>
+
 
 <h3>Find the customer ID and cost of all customers whose total cost per delivery is less or equal to
     the overall average cost of delivery per customer</h3>
@@ -64,10 +86,15 @@ if (connectToDB()) {
     <input type="submit" value="Go">
 </form>
 
-<h3>Find deliveries based on status (filtering/selection) </h3>
+<h3>Find deliveries based on transport status (filtering/selection) </h3>
 <form method="GET" action="delivery_tables.php">
-    <input type="hidden" name="filterRequest">
-    transport status: <input type="text" name="status" style="margin: 10px;">
+    <input type="hidden" id="filterRequest" name="filterRequest">
+    <select name="status">
+        <option value="in-delivery"> In delivery</option>
+        <option value="in warehouse"> In warehouse </option>
+        <option value="delayed"> Delayed </option>
+        <option value="delivered"> Delivered </option>
+    </select>
     <input type="submit" value="Go">
 </form>
 <br/>

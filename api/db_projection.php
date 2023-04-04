@@ -4,7 +4,7 @@ function handleProjectionRequest($table, $condition, $fields) {
         $result = doSelection($table, $condition, $fields);
         outputResultTable($result);
     }else{
-        echo "Columns not correctly entered";
+        echo "No fields entered";
     }
 }
 ?>

@@ -11,7 +11,7 @@ function doSelection($table, $condition = null, $fields = null) {
         } else {
 
             // projection with different fields
-            $selected_fields = implode(", ", array($fields));
+            $selected_fields = implode(", ", $fields);
             $result = executePlainSQL("SELECT $selected_fields FROM $table");
         }
     } else {
