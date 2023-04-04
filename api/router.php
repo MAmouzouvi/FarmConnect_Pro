@@ -7,6 +7,7 @@ require_once('db_groupby.php');
 require_once('db_nested_groupby.php');
 require_once('db_projection.php');
 require_once('db_filtering.php');
+require_once('db_sorting.php');
 
 // built off of tutorial 7 code at https://www.students.cs.ubc.ca/~cs-304/resources/php-oracleresources/php-setup.html
 // handles routing for API requests
@@ -38,7 +39,10 @@ function handleGETRequest()
             handleNestedGroupByRequest();
         } else if (array_key_exists('filterRequest', $_GET) && array_key_exists('status', $_GET)) {
             handleFilteringRequest("Delivery", $_GET['status']);
+        } else if (array_key_exists('sortRequest', $_GET) && array_key_exists('order', $_GET) && array_key_exists('sortValue', $_GET)) {
+            handleSortingRequest("Delivery", $_GET['sortValue'], $_GET['order']);
         }
+            
         disconnectFromDB();
     }
 }
