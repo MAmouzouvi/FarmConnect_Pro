@@ -98,6 +98,23 @@ if (connectToDB()) {
     <input type="submit" value="Go">
 
 </form>
+    
+<h3>Find deliveries and sort based on a sorting value (customerID or Total cost) and order (ASC/DESC) </h3>
+<form method="GET" action="delivery_tables.php">
+    <input type="hidden" id="sortRequest" name="sortRequest">
+    <select name="sortValue">
+        <option value="customerID"> customer ID</option>
+        <option value="totalCost"> total CoSt </option>
+    </select>
+    <input type="hidden" id="orderRequest" name="orderRequest">
+    <select name="orderValue">
+        <option value="asc"> ascending order</option>
+        <option value="desc"> descending order </option>
+    </select>
+    
+    <input type="submit" value="Go">
+
+</form>
 <br/>
 <br/>
 <?php
