@@ -9,6 +9,7 @@ require_once('db_projection.php');
 require_once('db_filtering.php');
 require_once('db_sorting.php');
 require_once('db_joining.php');
+require_once('db_update.php');
 
 // built off of tutorial 7 code at https://www.students.cs.ubc.ca/~cs-304/resources/php-oracleresources/php-setup.html
 // handles routing for API requests
