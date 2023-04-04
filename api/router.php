@@ -10,6 +10,7 @@ require_once('db_filtering.php');
 
 // built off of tutorial 7 code at https://www.students.cs.ubc.ca/~cs-304/resources/php-oracleresources/php-setup.html
 // handles routing for API requests
+
 function handlePOSTRequest() {
     if (connectToDB()) {
         if (array_key_exists('insertBusinessRequest', $_POST)) {
@@ -25,7 +26,6 @@ function handlePOSTRequest() {
 function handleGETRequest()
 {
     if (connectToDB()) {
-
         if (array_key_exists('selectRequest', $_GET) && array_key_exists('tableName', $_GET)) {
             handleSelectionRequest($_GET['tableName']);
         } else if (array_key_exists('divisionRequest', $_GET) && array_key_exists('date', $_GET) && array_key_exists('cid', $_GET)) {
@@ -38,15 +38,15 @@ function handleGETRequest()
             handleNestedGroupByRequest();
         } else if (array_key_exists('filterRequest', $_GET) && array_key_exists('status', $_GET)) {
             handleFilteringRequest("Delivery", $_GET['status']);
-            disconnectFromDB();
         }
+        disconnectFromDB();
     }
 }
 
 if (isset($_POST['insertBusinessRequest'])) {
     handlePOSTRequest();
 } else if (isset($_GET['selectRequest']) || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
-    || isset($_GET['projectionRequest'])|| isset($_GET['filterRequest'])) {
+    || isset($_GET['projectionRequest'])) {
     handleGETRequest();
 }
 ?>
