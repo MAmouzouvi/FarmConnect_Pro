@@ -3,7 +3,9 @@
 
 <head>
     <title>Warehouse Information</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        <?php include "styles.css" ?>
+    </style>
 </head>
 
 <body>
@@ -20,7 +22,6 @@ if (connectToDB()) {
     disconnectFromDB();
 }
 ?>
-<br />
-</body>
 
+</body>
 </html>

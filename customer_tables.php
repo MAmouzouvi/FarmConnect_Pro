@@ -3,7 +3,9 @@
 
 <head>
     <title>Customer Information</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        <?php include "styles.css" ?>
+    </style>
 </head>
 
 <body>

@@ -2,7 +2,9 @@
 <html lang="">
     <head>
         <title>Group 93 Project</title>
-        <link rel="stylesheet" href="styles.css">
+        <style>
+            <?php include "styles.css" ?>
+        </style>
     </head>
 
     <body>
@@ -16,7 +18,7 @@
         <div class="page-menu" onclick="window.location.href = 'customer_tables.php'"> 
             Customer
         </div>
-        <div class="page-menu" onclick="window.location.href = 'payments_tables.php">
+        <div class="page-menu" onclick="window.location.href = 'payments_tables.php'">
             Payments
         </div>
 	</body>

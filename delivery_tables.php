@@ -2,7 +2,9 @@
 <html>
 <head>
     <title>Delivery Information</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        <?php include "styles.css" ?>
+    </style>
 </head>
 <body>
 <h2> Delivery Information </h2>
@@ -65,7 +67,7 @@ if (connectToDB()) {
 <h3>Find deliveries based on status (filtering/selection) </h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" name="filterRequest">
-    transport status: <input type="text" name="status" style="margin: 100px;">
+    transport status: <input type="text" name="status" style="margin: 10px;">
     <input type="submit" value="Go">
 </form>
 <br/>

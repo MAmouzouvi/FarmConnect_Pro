@@ -1,23 +1,29 @@
 <?php
-function handleFilteringRequest($table = null, $condition) {
+function handleFilteringRequest($table, $condition)
+{
+    if ($condition != null) {
 
-if($condition == 'in-delivery'){
+        if ($condition == 'in-delivery') {
 
-    $result = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'in-delivery'";
+            $query = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'in-delivery'";
 
-}else if ($condition == 'in warehouse'){
-    $result = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'in-delivery'";
+        } else if ($condition == 'in warehouse') {
+            $query = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'in warehoude'";
 
-}else if($condition == 'delivered'){
-    $result = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'in-delivery'";
+        } else if ($condition == 'delivered') {
+            $query = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'delivered'";
 
-}else if ($condition == 'delayed'){
-    $result = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'in-delivery'";
+        } else if ($condition == 'delayed') {
+            $query = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'delayed'";
 
-}else{
-    echo "No deliveries found";
+        }
+
+        $result = executePlainSQL($query);
+        outputResultTable($result);
+    } else {
+        echo "No deliveries found";
+    }
+
 }
 
-    outputResultTable($result);
-}
 ?>
