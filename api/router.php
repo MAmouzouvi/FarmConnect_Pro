@@ -55,7 +55,7 @@ function handleGETRequest()
 if (isset($_POST['insertBusinessRequest'])|| isset($_POST['updateCustomerRequest'])) {
     handlePOSTRequest();
 } else if (isset($_GET['selectRequest']) || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
-    || isset($_GET['projectionRequest']) || isset($_GET['filterRequest']) || isset($_GET['sortingRequest']) || isset($_GET['nestedGroupByRequest'])) {
+    || isset($_GET['projectionRequest']) || isset($_GET['filterRequest']) || isset($_GET['sortRequest']) || isset($_GET['nestedGroupByRequest'])) {
     handleGETRequest();
 }
 ?>
