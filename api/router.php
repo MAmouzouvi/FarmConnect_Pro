@@ -46,7 +46,8 @@ function handleGETRequest()
 if (isset($_POST['insertBusinessRequest'])) {
     handlePOSTRequest();
 } else if (isset($_GET['selectRequest']) || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
-    || isset($_GET['projectionRequest'])) {
+    || isset($_GET['projectionRequest']) || isset($_GET['filterRequest'])) {
     handleGETRequest();
 }
 ?>
+

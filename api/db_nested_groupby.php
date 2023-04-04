@@ -10,10 +10,10 @@ function handleNestedGroupByRequest()
     $query = "SELECT CUSTOMERID, COUNT(*)
 FROM DELIVERY d1
 GROUP BY d1.CUSTOMERID
-HAVING AVG(COUNT(*)) <= (SELECT MIN(COUNT(*))
+HAVING AVG(COUNT(*)) >= (SELECT MIN(COUNT(*))
                          FROM DELIVERY d2
                          GROUP BY d2.CUSTOMERID
-                         ORDER BY AVG(COUNT(*))
+                         ORDER BY MIN(COUNT(*))
 )";
 
     $result = executePlainSQL($query);

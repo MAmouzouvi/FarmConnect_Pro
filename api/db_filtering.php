@@ -8,7 +8,7 @@ function handleFilteringRequest($table, $condition)
             $query = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'in-delivery'";
 
         } else if ($condition == 'in warehouse') {
-            $query = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'in warehoude'";
+            $query = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'in warehouse'";
 
         } else if ($condition == 'delivered') {
             $query = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = 'delivered'";
