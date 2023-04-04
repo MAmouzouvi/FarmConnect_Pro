@@ -107,7 +107,7 @@ if (connectToDB()) {
         <option value="totalCost"> total CoSt </option>
     </select>
     <input type="hidden" id="orderRequest" name="orderRequest">
-    <select name="orderValue">
+    <select name="order">
         <option value="asc"> ascending order</option>
         <option value="desc"> descending order </option>
     </select>
