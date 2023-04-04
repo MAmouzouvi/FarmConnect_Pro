@@ -53,14 +53,14 @@ if (connectToDB()) {
     (in capitals and seperated by a comma) and submit!</h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" name="projectionRequest">
-    Fields: <input type="text" name="fields" style="margin: 100px;">
+    Fields: <input type="text" name="fields" style="margin: 10px;">
     <input type="submit" value="Submit">
 </form>
 
-<h3>Find the customer ID of all customers whose average number of deliveries is less or equal to the overall minimum
-    average number of deliveries</h3>
+<h3>Find the customer ID and cost of all customers whose total cost per delivery is less or equal to
+    the overall average cost of delivery per customer</h3>
 <form method="GET" action="delivery_tables.php">
-    <input type="hidden" name="NestedGroupByRequest">
+    <input type="hidden" name="nestedGroupByRequest">
     <input type="submit" value="Go">
 </form>
 

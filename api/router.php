@@ -34,7 +34,7 @@ function handleGETRequest()
             handleGroupByRequest();
         } else if (array_key_exists('projectionRequest', $_GET) && array_key_exists('fields', $_GET)) {
             handleProjectionRequest("Delivery", null, $_GET['fields']); // in db_selection.php
-        } else if (array_key_exists('NestedGroupByRequest', $_GET)) {
+        } else if (array_key_exists('nestedGroupByRequest', $_GET)) {
             handleNestedGroupByRequest();
         } else if (array_key_exists('filterRequest', $_GET) && array_key_exists('status', $_GET)) {
             handleFilteringRequest("Delivery", $_GET['status']);
@@ -46,7 +46,7 @@ function handleGETRequest()
 if (isset($_POST['insertBusinessRequest'])) {
     handlePOSTRequest();
 } else if (isset($_GET['selectRequest']) || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
-    || isset($_GET['projectionRequest']) || isset($_GET['filterRequest'])) {
+    || isset($_GET['projectionRequest']) || isset($_GET['filterRequest']) || isset($_GET['nestedGroupByRequest'])) {
     handleGETRequest();
 }
 ?>
