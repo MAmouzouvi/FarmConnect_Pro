@@ -44,7 +44,7 @@ function handleGETRequest()
             handleNestedGroupByRequest();
         } else if (array_key_exists('filterRequest', $_GET) && array_key_exists('status', $_GET)) {
             handleFilteringRequest("Delivery", $_GET['status']);
-        } else if (array_key_exists('sortRequest', $_GET) && array_key_exists('order', $_GET) && array_key_exists('sortValue', $_GET)) {
+        } else if (array_key_exists('sortRequest', $_GET) && array_key_exists('order', $_GET) && array_key_exists('sortValue', $_GET) && array_key_exists('orderRequest', $_GET)) {
             handleSortingRequest("Delivery", $_GET['sortValue'], $_GET['order']);
         }
             
@@ -55,7 +55,7 @@ function handleGETRequest()
 if (isset($_POST['insertBusinessRequest'])|| isset($_POST['updateCustomerRequest'])) {
     handlePOSTRequest();
 } else if (isset($_GET['selectRequest']) || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
-    || isset($_GET['projectionRequest']) || isset($_GET['filterRequest']) || isset($_GET['nestedGroupByRequest'])) {
+    || isset($_GET['projectionRequest']) || isset($_GET['filterRequest']) || isset($_GET['sortingRequest']) || isset($_GET['nestedGroupByRequest'])) {
     handleGETRequest();
 }
 ?>
