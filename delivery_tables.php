@@ -70,9 +70,9 @@ if (connectToDB()) {
         <option value="DRIVERLICENSENUMBER"> driver license number </option>
         <option value="TRANSPORTVEHICLENAME"> Transport vehicle name </option>
         <option value="STOREDSINCE"> stored since </option>
-        <option value="WAREHOUSE"> warehouse </option>
+        <option value="WAREHOUSENAME"> warehouse name</option>
         <option value="SCHEDULEDDATE"> scheduled date </option>
-        <option value="DESTINATIOM"> destination </option>
+        <option value="DESTINATION"> destination </option>
 
     </select>
     <input type="submit" value="Go">
@@ -96,11 +96,13 @@ if (connectToDB()) {
         <option value="delivered"> Delivered </option>
     </select>
     <input type="submit" value="Go">
+
 </form>
 <br/>
 <br/>
 <?php
 require_once('api/router.php');
 ?>
+<br/>
 </body>
 </html>

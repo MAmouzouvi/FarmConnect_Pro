@@ -18,6 +18,11 @@ function handlePOSTRequest() {
             handleInsertRequest();
         }
 
+        if (array_key_exists('updateCustomerRequest', $_POST)) {
+            handleUpdateRequest();
+        }
+
+
         disconnectFromDB();
     }
 }
@@ -47,7 +52,7 @@ function handleGETRequest()
     }
 }
 
-if (isset($_POST['insertBusinessRequest'])) {
+if (isset($_POST['insertBusinessRequest'])|| isset($_POST['updateCustomerRequest'])) {
     handlePOSTRequest();
 } else if (isset($_GET['selectRequest']) || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
     || isset($_GET['projectionRequest']) || isset($_GET['filterRequest']) || isset($_GET['nestedGroupByRequest'])) {

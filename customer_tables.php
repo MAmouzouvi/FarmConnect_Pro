@@ -43,6 +43,24 @@
             <input type="submit" value="Add">
         </form>
     </div>
+    <br />
+
+    <h3>Update Customer information (name, email or phone number)</h3>
+    <div class="form-box">
+        <form method="POST" action="customer_tables.php">
+            <input type="hidden" id="updateCustomerRequest" name="updateCustomerRequest">
+            <label>Customer ID</label>
+            <input type="number" name="cID"> <br />
+            <label>New Name:</label>
+            <input type="text" name="new_name"> <br />
+            <label>New Email:</label>
+            <input type="email" name="new_email"> <br />
+            <label>New Phone Number:</label>
+            <input type="tel" name="new_phone"> <br />
+            <input type="submit" value="Update">
+        </form>
+    </div>
+
 </body>
 
 </html>
