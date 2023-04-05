@@ -11,6 +11,7 @@ require_once('db_sorting.php');
 require_once('db_joining.php');
 require_once('db_update.php');
 require_once('db_delete.php');
+require_once('db_aggregation.php');
 
 // built off of tutorial 7 code at https://www.students.cs.ubc.ca/~cs-304/resources/php-oracleresources/php-setup.html
 // handles routing for API requests
@@ -55,6 +56,8 @@ function handleGETRequest()
             handleSortingRequest("Delivery", $_GET['sortValue'], $_GET['order']);
         } else if (array_key_exists('joinRequest', $_GET) && array_key_exists('data', $_GET)) {
             handleJoiningRequest("Delivery", $_GET['data']); 
+        } else if (array_key_exists('aggregationRequest', $_GET)) {
+            handleAggregationRequest();
         }
             
         disconnectFromDB();
@@ -63,7 +66,7 @@ function handleGETRequest()
 
 if (isset($_POST['insertBusinessRequest'])|| isset($_POST['updateCustomerRequest']) || isset($_POST['deleteRequest'])) {
     handlePOSTRequest();
-} else if (isset($_GET['selectRequest']) || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
+} else if (isset($_GET['selectRequest']) || isset($_GET['aggregationRequest']) || isset($_GET['divisionRequest']) || isset($_GET['groupByRequest'])
     || isset($_GET['projectionRequest']) || isset($_GET['joinRequest']) || isset($_GET['filterRequest']) || isset($_GET['sortRequest']) || isset($_GET['nestedGroupByRequest'])) {
     handleGETRequest();
 }
