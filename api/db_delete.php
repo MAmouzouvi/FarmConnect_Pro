@@ -3,7 +3,7 @@ function handleDeleteRequest($id) {
     global $db_conn;
 
 //     $id_list = implode(",", $ids);
-    $query = "DELETE FROM Delivery WHERE deliveryID IN ($id)";
+    $query = "DELETE FROM Delivery WHERE deliveryID = '$id'";
 
     $result = executePlainSQL($query);
 
@@ -13,4 +13,4 @@ function handleDeleteRequest($id) {
         echo "Error deleting rows from the table.";
     }
 }
-
+?>
