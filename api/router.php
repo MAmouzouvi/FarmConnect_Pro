@@ -59,6 +59,8 @@ function handleGETRequest()
             handleJoiningRequest("Delivery", $_GET['data']); 
         } else if (array_key_exists('aggregationRequest', $_GET)) {
             handleAggregationRequest();
+        } else if (array_key_exists('getFieldsForTableRequest', $_GET) && array_key_exists('tableName', $_GET)) {
+            handleGetFieldsForTableRequest();
         }
             
         disconnectFromDB();

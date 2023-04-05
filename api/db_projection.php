@@ -14,7 +14,6 @@ function handleProjectionRequest($table, $condition, $fields) {
 function getTablesForProjection() {
     if (connectToDB()) {
         $tablesQuery = "select table_name from user_tables";
-        // $tableDropdown = 
         $result = executePlainSQL($tablesQuery);
         while (($row = oci_fetch_row($result)) != false) { 
             echo "<option value=\"{$row[0]}\"> {$row[0]} </option>";
