@@ -6,7 +6,7 @@ function handleUpdateRequest()
     $cID = $_POST['cID'];
     $new_name = $_POST['new_name'];
     $new_email= $_POST['new_email'];
-    $new_phone = $_POST['new_phone'];
+
 
 
     if (empty($cID)) {
@@ -28,30 +28,24 @@ function handleUpdateRequest()
                 $row = oci_fetch_assoc($result);
                 $new_email = $row['EMAILADDRESS'];
             }
-            if(empty($new_phone)){
-                $result = executePlainSQL("SELECT PHONENUMBER FROM CUSTOMER WHERE customerID =" . $cID);
-                $row = oci_fetch_assoc($result);
-                $new_phone = $row['PHONENUMBER'];
-            }
 
             // Update fields
-            if (!is_numeric($new_phone)) {
-                echo $error_msg . "Invalid phone number. </div>";
-            } else {
-                executePlainSQL("UPDATE CUSTOMER SET NAME='" . $new_name . "', EMAILADDRESS='" . $new_email . "', PHONENUMBER=" . $new_phone . " WHERE customerID =" . $cID);
-                if ($success) {
-                    echo "<div class=\"success-msg\"> Successfully updated customer! </div>";
-                }
-                OCICommit($db_conn);
+            executePlainSQL("UPDATE CUSTOMER SET NAME='" . $new_name . "', EMAILADDRESS=" . $new_email . " WHERE customerID =" . $cID);
+
+            if ($success) {
+                echo "<div class=\"success-msg\"> Successfully updated customer! </div>";
             }
+            OCICommit($db_conn);
+
         }
     }
 }
 
 function countRows($result) {
-    $data =array(0);
+    $data = array(0);
     $rows = oci_fetch_all($result, $data, null, null, OCI_FETCHSTATEMENT_BY_ROW);
     return $rows;
 }
 
 ?>
+

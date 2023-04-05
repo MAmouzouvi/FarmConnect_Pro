@@ -46,11 +46,11 @@ function handleGETRequest()
         } else if (array_key_exists('groupByRequest', $_GET)) {
             handleGroupByRequest();
         } else if (array_key_exists('projectionRequest', $_GET) && array_key_exists('fields', $_GET)) {
-            handleProjectionRequest("Delivery", null, $_GET['fields']); // in db_selection.php
+            handleSelectionRequest("Delivery", null, $_GET['fields']); // in db_selection.php
         } else if (array_key_exists('nestedGroupByRequest', $_GET)) {
             handleNestedGroupByRequest();
         } else if (array_key_exists('filterRequest', $_GET) && array_key_exists('status', $_GET)) {
-            handleFilteringRequest("Delivery", $_GET['status']);
+            handleFilteringRequest($_GET['status']);
         } else if (array_key_exists('sortRequest', $_GET) && array_key_exists('order', $_GET) && array_key_exists('sortValue', $_GET) && array_key_exists('orderRequest', $_GET)) {
             handleSortingRequest("Delivery", $_GET['sortValue'], $_GET['order']);
         } else if (array_key_exists('joinRequest', $_GET) && array_key_exists('data', $_GET)) {

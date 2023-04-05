@@ -56,7 +56,6 @@ if (connectToDB()) {
 <!--    Fields: <input type="text" name="fields" style="margin: 10px;">-->
 <!--    <input type="submit" value="Submit">-->
 <!--</form>-->
-
 <h3> Select only the fields you would like to see (press command or control to select multiple) </h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="projectionRequest" name="projectionRequest">
@@ -137,6 +136,7 @@ if (connectToDB()) {
 <?php
 require_once('api/router.php');
 ?>
+<br/>
 <br/>
 </body>
 </html>
