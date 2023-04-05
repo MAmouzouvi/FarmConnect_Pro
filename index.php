@@ -21,5 +21,21 @@
         <div class="page-menu" onclick="window.location.href = 'payments_tables.php'">
             Payments
         </div>
+        <br />
+        <div>
+            <h2> Display any field from any table: </h2>
+            <form method="GET" action="index.php">
+                <input type="hidden" name="getFieldsForTableRequest">
+                <select name="tableName" onchange="this.form.submit()">
+                    <?php 
+                        require_once('api/db_projection.php');
+                        getTablesForProjection();
+                        // echo "hello 2";
+                    ?>
+                </select>
+                <!-- <input type="submit" value="Select Fields"> -->
+            </form>
+            <?php require_once('api/router.php'); ?>
+        </div>
 	</body>
 </html>
