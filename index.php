@@ -30,10 +30,8 @@
                     <?php 
                         require_once('api/db_projection.php');
                         getTablesForProjection();
-                        // echo "hello 2";
                     ?>
                 </select>
-                <!-- <input type="submit" value="Select Fields"> -->
             </form>
             <?php require_once('api/router.php'); ?>
         </div>
