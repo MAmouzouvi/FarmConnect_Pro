@@ -93,6 +93,15 @@ if (connectToDB()) {
     <input type="submit" value="Go">
 </form>
 
+<br/>
+ 
+
+<h3>Find the deliveries within two days of current day</h3>
+<form method="GET" action="delivery_tables.php">
+    <input type="hidden" name="aggregationRequest">
+    <input type="submit" value="Go">
+</form>
+    
 <h3>Find deliveries based on transport status (filtering/selection) </h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="filterRequest" name="filterRequest">
