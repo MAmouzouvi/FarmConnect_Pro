@@ -81,7 +81,7 @@ if (connectToDB()) {
 <h3>Delete deliveries based on id</h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="deleteRequest" name="deleteRequest">
-    ID:<input name="id" style="margin: 10px;"><br/>
+    ID:<input id="id" name="id" style="margin: 10px;"><br/>
     <input type="submit" value="Go">
 </form>
 <br/>
