@@ -6,6 +6,7 @@ function handleDeleteRequest($id) {
     $query = "DELETE FROM Delivery WHERE deliveryID = '$id'";
 
     $result = executePlainSQL($query);
+    OCICommit($db_conn);
 
     if ($result) {
         echo "Successfully deleted the selected rows.";
