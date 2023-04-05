@@ -77,7 +77,15 @@ if (connectToDB()) {
     </select>
     <input type="submit" value="Go">
 </form>
-
+    
+<h3>Delete deliveries based on id</h3>
+<form method="GET" action="delivery_tables.php">
+    <input type="hidden" id="deleteRequest" name="deleteRequest">
+    ID:<input name="id" style="margin: 10px;"><br/>
+    <input type="submit" value="Go">
+</form>
+<br/>
+ 
 
 <h3>Find the customer ID and cost of all customers whose total cost per delivery is less or equal to
     the overall average cost of delivery per customer</h3>
