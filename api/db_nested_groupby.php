@@ -7,11 +7,13 @@ function handleNestedGroupByRequest()
 {
     global $db_conn;
     $query = <<< QUERY
-    SELECT D.CUSTOMERID, D.TOTALCOST
-    FROM DELIVERY D
-    WHERE D.TOTALCOST <= ALL (SELECT AVG (D2.TOTALCOST)
-                                   FROM DELIVERY D2
-                                   GROUP BY CUSTOMERID)
+SELECT D.driverLicenseNumber, AVG(totalWeight) AS avg_total_weight
+FROM Delivery D
+GROUP BY D.driverLicenseNumber
+HAVING AVG(totalWeight) >= ALL (SELECT AVG(D2.totalWeight)
+                                FROM Delivery D2
+                                GROUP BY driverLicenseNumber)
+
 QUERY;
 
     $result = executePlainSQL($query);
