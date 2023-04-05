@@ -1,5 +1,5 @@
 <?php
-function handleAggrefationRequest() {
+function handleAggregationRequest() {
     global $db_conn;
 
     $date_from = date('Y-m-d');
