@@ -1,9 +1,9 @@
 <?php
-function handleDeleteRequest($ids) {
+function handleDeleteRequest($id) {
     global $db_conn;
 
-    $id_list = implode(",", $ids);
-    $query = "DELETE FROM Delivery WHERE deliveryID IN ($id_list)";
+//     $id_list = implode(",", $ids);
+    $query = "DELETE FROM Delivery WHERE deliveryID IN ($id)";
 
     $result = executePlainSQL($query);
 
