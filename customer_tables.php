@@ -59,6 +59,14 @@ if (connectToDB()) {
     </form>
 </div>
 
+<h3>Delete customers based on ID</h3>
+<form method="POST" action="customer_tables.php">
+    <input type="hidden" id="deleteRequest" name="deleteRequest">
+    ID:<input id="id" name="id" style="margin: 10px;"><br/>
+    <input type="submit" value="Go">
+</form>
+<br/>
+
 </body>
 
 </html>

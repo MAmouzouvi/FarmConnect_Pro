@@ -41,7 +41,7 @@ function handleDivisionRequest() {
         $success = oci_execute($stid);
         if (!$success) {
             echo $error_msg;
-            $e = OCI_Error($statement);
+            $e = OCI_Error($stid);
             echo htmlentities($e['message']);
             echo "<br>";
         } else {

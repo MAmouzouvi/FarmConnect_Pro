@@ -1,17 +1,25 @@
 <?php
+require_once('db_connect.php');
+
 function handleDeleteRequest($id) {
-    global $db_conn;
+    global $db_conn, $success;
 
-//     $id_list = implode(",", $ids);
-    $query = "DELETE FROM Delivery WHERE deliveryID = '$id'";
+    $query = "DELETE FROM Customer WHERE customerID = :cid";
+    $values = array(
+        ':cid' => $id
+    );
+    $tuples = array(
+        $values
+    );
+    $result = executeBoundSQL($query, $tuples);
+    
 
-    $result = executePlainSQL($query);
-    OCICommit($db_conn);
-
-    if ($result) {
+    if ($success) {
         echo "Successfully deleted the selected rows.";
     } else {
         echo "Error deleting rows from the table.";
     }
+
+    OCICommit($db_conn);
 }
 ?>

@@ -78,13 +78,13 @@ if (connectToDB()) {
     <input type="submit" value="Go">
 </form>
     
-<h3>Delete deliveries based on id</h3>
+<!-- <h3>Delete deliveries based on id</h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="deleteRequest" name="deleteRequest">
     ID:<input id="id" name="id" style="margin: 10px;"><br/>
     <input type="submit" value="Go">
 </form>
-<br/>
+<br/> -->
  
 
 <h3>Find the license number and the total weight transported by the best driver
