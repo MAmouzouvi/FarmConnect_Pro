@@ -133,7 +133,6 @@ CREATE TABLE Delivery
     warehouseName        VARCHAR(50),
     scheduledDate        DATE      NOT NULL,
     destination          VARCHAR(50) NOT NULL,
-
     PRIMARY KEY (deliveryID),
     FOREIGN KEY (customerID) REFERENCES Customer,
     FOREIGN KEY (driverLicenseNumber) REFERENCES Drivers,
