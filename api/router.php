@@ -52,7 +52,7 @@ function handleGETRequest()
         } else if (array_key_exists('nestedGroupByRequest', $_GET)) {
             handleNestedGroupByRequest();
         } else if (array_key_exists('filterRequest', $_GET) && array_key_exists('status', $_GET)) {
-            handleFilteringRequest($_GET['status']);
+            handleFilteringRequest();
         } else if (array_key_exists('sortRequest', $_GET) && array_key_exists('order', $_GET) && array_key_exists('sortValue', $_GET) && array_key_exists('orderRequest', $_GET)) {
             handleSortingRequest("Delivery", $_GET['sortValue'], $_GET['order']);
         } else if (array_key_exists('joinRequest', $_GET) && array_key_exists('data', $_GET)) {

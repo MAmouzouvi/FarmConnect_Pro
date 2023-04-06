@@ -159,23 +159,6 @@ CREATE TABLE Items
     FOREIGN KEY (name) REFERENCES ItemCosts
 );
 
-CREATE TABLE Business
-(
-    customerID  INTEGER,
-    companyName VARCHAR(50) NOT NULL,
-    type        VARCHAR(16),
-    PRIMARY KEY (customerID),
-    FOREIGN KEY (customerID) REFERENCES Customer ON DELETE CASCADE
-);
-
-CREATE TABLE Individual
-(
-    customerID   INTEGER,
-    rewardPoints INTEGER,
-    PRIMARY KEY (customerID),
-    FOREIGN KEY (customerID) REFERENCES Customer ON DELETE CASCADE
-);
-
 insert into CustomerPhoneAddress (PHONENUMBER, ADDRESS)
 values (7783321234, '2345 West Mall');
 
@@ -421,6 +404,25 @@ values (463, 'banana', 139, 207);
 insert into Items
 values (462, 'banana', 355, 173);
 
+
+
+CREATE TABLE Business
+(
+    customerID  INTEGER,
+    companyName VARCHAR(50) NOT NULL,
+    type        VARCHAR(16),
+    PRIMARY KEY (customerID),
+    FOREIGN KEY (customerID) REFERENCES Customer ON DELETE CASCADE
+);
+
+CREATE TABLE Individual
+(
+    customerID   INTEGER,
+    rewardPoints INTEGER,
+    PRIMARY KEY (customerID),
+    FOREIGN KEY (customerID) REFERENCES Customer ON DELETE CASCADE
+);
+
 insert into Business(customerid, companyname, type)
 values (4510, 'Browns Crafthouse', 'Restaurant');
 insert into Business(customerid, companyname, type)
@@ -443,5 +445,6 @@ insert into Individual(customerid, rewardpoints)
 values (4563, 1003);
 insert into Individual(customerid, rewardpoints)
 values (4564, 4031);
+
 
 commit;

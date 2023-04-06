@@ -1,15 +1,33 @@
 <?php
-function handleFilteringRequest($condition)
+require_once('db_connect.php');
+require_once('db_selection.php');
+function handleFilteringRequest()
 {
-    if ($condition != null) {
-        echo "<h2> Table: delivery (status : $condition) </h2>";
-        $query = "SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = '$condition'";
+    global $db_conn;
+    $error_msg = "<div class=\"error-msg\"> ";
+    if (empty($_GET['status'])) {
+        echo $error_msg .= "Please specify a transportation status. </div>";
+    } else {
+        $error_msg .= "No deliveries found. </div>";
 
-        $result = executePlainSQL($query);
-        outputResultTable($result);
+        $success = False;
+        $query = <<< QUERY
+        SELECT * FROM DELIVERY WHERE TRANSPORTSTATUS = :status
+        QUERY;
 
-    }else {
-        echo "No deliveries found";
+        $stid = oci_parse($db_conn, $query);
+        oci_bind_by_name($stid, ':status', $_GET['status']);
+
+        $success = oci_execute($stid);
+        if (!$success) {
+            echo $error_msg;
+//            $e = OCI_Error($statement);
+//            echo htmlentities($e['message']);
+            echo "<br>";
+        } else {
+            outputResultTable($stid);
+        }
+        oci_free_statement($stid);
     }
 }
 
