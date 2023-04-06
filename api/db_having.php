@@ -6,9 +6,9 @@ function handleHavingByRequest() {
     global $db_conn;
 
     $query = <<< QUERY
-    SELECT name, SUM(weight * quantity)
-    FROM Items
-    GROUP BY name
+    SELECT ITEMS.name, SUM(weight * quantity)
+    FROM Items, ITEMCOSTS
+    GROUP BY ITEMS.name
     HAVING AVG(cost) > 10 
     QUERY;
 
