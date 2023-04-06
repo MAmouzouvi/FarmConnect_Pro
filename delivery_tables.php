@@ -125,8 +125,8 @@ if (connectToDB()) {
     </select>
     <input type="hidden" id="orderRequest" name="orderRequest">
     <select name="order">
-        <option value="asc"> ascending order</option>
-        <option value="desc"> descending order </option>
+        <option value="ASC"> ascending order</option>
+        <option value="DESC"> descending order </option>
     </select>
     
     <input type="submit" value="Go">
