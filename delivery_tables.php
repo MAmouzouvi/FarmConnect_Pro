@@ -136,7 +136,7 @@ if (connectToDB()) {
 <h3> Join the Delivery Table and Customer table to find the names and addresses of all customers who have scheduled delivery on a specific day </h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="joinRequest" name="joinRequest">
-    DATE: <input type="text" name="data" style="margin: 10px;">
+    DATE: <input type="text" name="date" style="margin: 10px;">
     
     <input type="submit" value="Go">
 
