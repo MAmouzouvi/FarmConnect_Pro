@@ -56,7 +56,7 @@ function handleGETRequest()
         } else if (array_key_exists('sortRequest', $_GET) && array_key_exists('order', $_GET) && array_key_exists('sortValue', $_GET) && array_key_exists('orderRequest', $_GET)) {
             handleSortingRequest();
         } else if (array_key_exists('joinRequest', $_GET) && array_key_exists('data', $_GET)) {
-            handleJoiningRequest("Delivery", $_GET['data']); 
+            handleJoiningRequest(); 
         } else if (array_key_exists('aggregationRequest', $_GET)) {
             handleAggregationRequest();
         } else if (array_key_exists('getFieldsForTableRequest', $_GET) && array_key_exists('tableName', $_GET)) {
