@@ -56,7 +56,6 @@ if (connectToDB()) {
 <!--    Fields: <input type="text" name="fields" style="margin: 10px;">-->
 <!--    <input type="submit" value="Submit">-->
 <!--</form>-->
-
 <h3> Select only the fields you would like to see (press command or control to select multiple) </h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="projectionRequest" name="projectionRequest">
@@ -77,7 +76,7 @@ if (connectToDB()) {
     </select>
     <input type="submit" value="Go">
 </form>
-    
+
 <!-- <h3>Delete deliveries based on id</h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="deleteRequest" name="deleteRequest">
@@ -85,24 +84,15 @@ if (connectToDB()) {
     <input type="submit" value="Go">
 </form>
 <br/> -->
- 
 
-<h3>Find the license number and the total weight transported by the best driver
-(driver with the maximum average weight transported</h3>
+
+<h3>Find the customer ID and cost of all customers whose total cost per delivery is less or equal to
+    the overall average cost of delivery per customer</h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" name="nestedGroupByRequest">
     <input type="submit" value="Go">
 </form>
 
-<br/>
- 
-
-<h3>Find the deliveries within two days of current day</h3>
-<form method="GET" action="delivery_tables.php">
-    <input type="hidden" name="aggregationRequest">
-    <input type="submit" value="Go">
-</form>
-    
 <h3>Find deliveries based on transport status (filtering/selection) </h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="filterRequest" name="filterRequest">
@@ -115,7 +105,7 @@ if (connectToDB()) {
     <input type="submit" value="Go">
 
 </form>
-    
+
 <h3>Find deliveries and sort based on a sorting value (customerID or Total cost) and order (ASC/DESC) </h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="sortRequest" name="sortRequest">
@@ -125,19 +115,19 @@ if (connectToDB()) {
     </select>
     <input type="hidden" id="orderRequest" name="orderRequest">
     <select name="order">
-        <option value="ASC"> ascending order</option>
-        <option value="DESC"> descending order </option>
+        <option value="asc"> ascending order</option>
+        <option value="desc"> descending order </option>
     </select>
-    
+
     <input type="submit" value="Go">
 
 </form>
-    
+
 <h3> Join the Delivery Table and Customer table to find the names and addresses of all customers who have scheduled delivery on a specific day </h3>
 <form method="GET" action="delivery_tables.php">
     <input type="hidden" id="joinRequest" name="joinRequest">
-    DATE: <input type="text" name="date" style="margin: 10px;">
-    
+    DATE: <input type="text" name="data" style="margin: 10px;">
+
     <input type="submit" value="Go">
 
 </form>

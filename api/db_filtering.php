@@ -21,8 +21,8 @@ function handleFilteringRequest()
         $success = oci_execute($stid);
         if (!$success) {
             echo $error_msg;
-//            $e = OCI_Error($statement);
-//            echo htmlentities($e['message']);
+            $e = OCI_Error($stid);
+            echo htmlentities($e['message']);
             echo "<br>";
         } else {
             outputResultTable($stid);

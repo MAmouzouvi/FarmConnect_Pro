@@ -17,7 +17,7 @@ function handleJoiningRequest()
 
         $success = False;
         $query = <<< QUERY
-        SELECT Customer.name, Customer.address
+        SELECT Customer.name, DELIVERY.DESTINATION
                   FROM Customer
                   JOIN Delivery ON Customer.customerID = Delivery.customerID
                   WHERE Delivery.scheduledDate = :date

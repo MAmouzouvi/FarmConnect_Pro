@@ -17,26 +17,32 @@ function handleUpdateRequest()
         if(countRows($result) == 0)  {
             echo $error_msg . "Customer with ID " . $cID . " does not exist. </div>";
         }else{
-            // Check for empty fields
-            if(empty($new_name)){
-                $result = executePlainSQL("SELECT NAME FROM CUSTOMER WHERE customerID =" . $cID);
-                $row = oci_fetch_assoc($result);
-                $new_name = $row['NAME'];
-            }
-            if(empty($new_email)){
-                $result = executePlainSQL("SELECT EMAILADDRESS FROM CUSTOMER WHERE customerID =" . $cID);
-                $row = oci_fetch_assoc($result);
-                $new_email = $row['EMAILADDRESS'];
-            }
 
-            // Update fields
-            executePlainSQL("UPDATE CUSTOMER SET NAME='" . $new_name . "', EMAILADDRESS=" . $new_email . " WHERE customerID =" . $cID);
+            if(empty($new_name) && empty($new_email) ){
+                echo"you need at least one non empty field";
 
-            if ($success) {
-                echo "<div class=\"success-msg\"> Successfully updated customer! </div>";
+            }else{
+                // Check for empty fields
+                if(empty($new_name)){
+                    $result = executePlainSQL("SELECT NAME FROM CUSTOMER WHERE customerID =" . $cID);
+                    $row = oci_fetch_assoc($result);
+                    $new_name = $row['NAME'];
+                }
+                if(empty($new_email)){
+                    $result = executePlainSQL("SELECT EMAILADDRESS FROM CUSTOMER WHERE customerID =" . $cID);
+                    $row = oci_fetch_assoc($result);
+                    $new_email = $row['EMAILADDRESS'];
+                }
+
+                // Update fields
+                executePlainSQL("UPDATE CUSTOMER SET NAME='" . $new_name . "', EMAILADDRESS= '" . $new_email . "' WHERE customerID =" . $cID);
+
+                if ($success) {
+                    echo "<div class=\"success-msg\"> Successfully updated customer! </div>";
+                }
+                OCICommit($db_conn);
+
             }
-            OCICommit($db_conn);
-
         }
     }
 }
