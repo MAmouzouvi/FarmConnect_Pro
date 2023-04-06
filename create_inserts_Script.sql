@@ -1,21 +1,3 @@
-
-DROP TABLE Individual;
-DROP TABLE Business;
-DROP TABLE Items;
-DROP TABLE ItemCosts;
-DROP TABLE Delivery;
-DROP TABLE DeliveryReceived;
-DROP TABLE TransportVehicle;
-DROP TABLE Drivers;
-DROP TABLE Pays_Bill;
-DROP TABLE Farm_Warehouse_Supplies;
-DROP TABLE Warehouse;
-DROP TABLE Farm;
-DROP TABLE Signs_Contract;
-DROP TABLE Contract_Dates;
-DROP TABLE Customer;
-DROP TABLE CustomerPhoneAddress;
-
 CREATE TABLE CustomerPhoneAddress
 (
     phoneNumber INTEGER   NOT NULL,
