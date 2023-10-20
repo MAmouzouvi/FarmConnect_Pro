@@ -1,4 +1,5 @@
-# Supplier Database Management System
+# FarmConnect Pro
+## FarmConnect Pro is a Supplier Database Management System
 # CPSC 304 project_93 Group (Makafui Amouzouvi, Linh Pham, Nilay Mankala)
 
 ## Description
